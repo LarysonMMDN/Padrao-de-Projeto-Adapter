@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="400.0"
+            prefWidth="300.0"
+            minHeight="400.0"
+            maxHeight="400.0"
+            minWidth="300.0"
+            maxWidth="300.0"
+            style="-fx-background-color: #17212B;"
+            xmlns="http://javafx.com/javafx/25.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="laryson.martins.controller.CalculadoraController">
+
+    <!-- CABEÇALHO -->
+    <top>
+        <VBox alignment="CENTER"
+              prefHeight="65.0"
+              style="-fx-background-color: #218C74;">
+
+            <children>
+                <Label text="CALCULADORA"
+                       textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="21.0"/>
+                    </font>
+                </Label>
+
+                <Label text="Operações matemáticas"
+                       textFill="#DDFBF2">
+                    <font>
+                        <Font name="System" size="11.0"/>
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </top>
+
+    <!-- CONTEÚDO CENTRAL -->
+    <center>
+        <VBox alignment="CENTER"
+              spacing="13.0"
+              style="-fx-padding: 12.0;">
+
+            <children>
+
+                <Label text="Escolha uma operação"
+                       textFill="#F5F6FA">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                </Label>
+
+                <!-- BOTÕES DE OPERAÇÃO -->
+                <HBox alignment="CENTER" spacing="8.0">
+                    <children>
+
+                        <Button fx:id="btnPotencia"
+                                text="Potência"
+                                onAction="#mostrarPotencia"
+                                prefWidth="125.0"
+                                prefHeight="35.0"
+                                style="-fx-background-color: #218C74;
+                                       -fx-text-fill: white;
+                                       -fx-font-size: 12px;
+                                       -fx-font-weight: bold;
+                                       -fx-background-radius: 8px;
+                                       -fx-cursor: hand;"/>
+
+                        <Button fx:id="btnRaizQuadrada"
+                                text="Raiz quadrada"
+                                onAction="#mostrarRaiz"
+                                prefWidth="125.0"
+                                prefHeight="35.0"
+                                style="-fx-background-color: #34495E;
+                                       -fx-text-fill: white;
+                                       -fx-font-size: 12px;
+                                       -fx-font-weight: bold;
+                                       -fx-background-radius: 8px;
+                                       -fx-cursor: hand;"/>
+
+                    </children>
+                </HBox>
+
+                <!-- TÍTULO DA OPERAÇÃO -->
+                <Label fx:id="lblOperacao"
+                       text="Potência"
+                       textFill="#55EFC4">
+                    <font>
+                        <Font name="System Bold" size="17.0"/>
+                    </font>
+                </Label>
+
+                <!-- CAMPOS -->
+                <HBox fx:id="camposPotencia"
+                      alignment="CENTER"
+                      spacing="10.0">
+
+                    <children>
+
+                        <VBox alignment="CENTER" spacing="6.0">
+                            <children>
+
+                                <Label text="Base"
+                                       textFill="#DFE6E9">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Label>
+
+                                <TextField fx:id="valorInserido"
+                                           promptText="Base"
+                                           prefWidth="120.0"
+                                           prefHeight="35.0"
+                                           style="-fx-background-color: #F5F6FA;
+                                                  -fx-background-radius: 8px;
+                                                  -fx-font-size: 12px;
+                                                  -fx-padding: 6px;"/>
+
+                            </children>
+                        </VBox>
+
+                        <VBox fx:id="campoExpoente"
+                              alignment="CENTER"
+                              spacing="6.0">
+
+                            <children>
+
+                                <Label text="Expoente"
+                                       textFill="#DFE6E9">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Label>
+
+                                <TextField fx:id="expoenteInserido"
+                                           promptText="Expoente"
+                                           prefWidth="120.0"
+                                           prefHeight="35.0"
+                                           style="-fx-background-color: #F5F6FA;
+                                                  -fx-background-radius: 8px;
+                                                  -fx-font-size: 12px;
+                                                  -fx-padding: 6px;"/>
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </HBox>
+
+                <!-- BOTÃO CALCULAR -->
+                <Button fx:id="btnCalcular"
+                        text="CALCULAR"
+                        onAction="#calcular"
+                        prefWidth="250.0"
+                        prefHeight="38.0"
+                        style="-fx-background-color: #218C74;
+                               -fx-text-fill: white;
+                               -fx-font-size: 14px;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8px;
+                               -fx-cursor: hand;"/>
+
+            </children>
+        </VBox>
+    </center>
+
+    <!-- RESULTADO -->
+    <bottom>
+        <VBox alignment="CENTER"
+              spacing="6.0"
+              style="-fx-padding: 5.0 20.0 12.0 20.0;">
+
+            <children>
+
+                <Label text="RESULTADO"
+                       textFill="#55EFC4">
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Label>
+
+                <TextArea fx:id="resultado"
+                          prefHeight="65.0"
+                          minHeight="65.0"
+                          maxHeight="65.0"
+                          prefWidth="260.0"
+                          maxWidth="260.0"
+                          editable="false"
+                          wrapText="true"
+                          style="-fx-control-inner-background: #263542;
+                                 -fx-text-fill: white;
+                                 -fx-font-size: 12px;
+                                 -fx-background-radius: 8px;"/>
+
+            </children>
+        </VBox>
+    </bottom>
+
+</BorderPane>
